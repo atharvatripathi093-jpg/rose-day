@@ -1,0 +1,237 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For Pia 🌹</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #ffd6e8, #ffeaf4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  font-family: 'Poppins', sans-serif;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.96);
+  padding: 2.6rem 2.2rem 2.2rem;
+  border-radius: 28px;
+  text-align: center;
+  max-width: 400px;
+  box-shadow: 0 25px 50px rgba(230, 57, 70, 0.25);
+  animation: popIn 1s ease;
+  position: relative;
+}
+
+.card::before {
+  content: '💗';
+  position: absolute;
+  top: -18px;
+  right: -18px;
+  font-size: 2.2rem;
+  animation: pulse 2s infinite;
+}
+
+@keyframes popIn {
+  from { transform: scale(0.75) translateY(30px); opacity: 0; }
+  to { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+}
+
+h1 {
+  font-family: 'Pacifico', cursive;
+  color: #e63946;
+  font-size: 2.2rem;
+  margin-bottom: 0.2rem;
+}
+
+.subtitle {
+  font-size: 0.95rem;
+  color: #777;
+  margin-bottom: 1.2rem;
+}
+
+.photo-frame {
+  width: 150px;
+  height: 150px;
+  margin: 0.8rem auto 1rem;
+  border-radius: 22px;
+  padding: 6px;
+  background: linear-gradient(135deg, #ff4d6d, #ffd6e8);
+  box-shadow: 0 12px 30px rgba(230,57,70,0.35);
+}
+
+.photo-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 18px;
+  background: #fff;
+}
+
+.rose {
+  font-size: 4.2rem;
+  margin: 0.6rem 0 1rem;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-14px); }
+}
+
+button {
+  margin-top: 1.2rem;
+  padding: 0.9rem 1.9rem;
+  border: none;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #ff4d6d, #e63946);
+  color: white;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 10px 25px rgba(230,57,70,0.4);
+}
+
+button:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 15px 35px rgba(230,57,70,0.55);
+}
+
+.typewriter {
+  margin-top: 1.2rem;
+  text-align: left;
+  font-size: 0.98rem;
+  color: #333;
+  line-height: 1.55;
+  display: none;
+  white-space: pre-wrap;
+  max-height: 260px;
+  overflow-y: auto;
+  padding-right: 6px;
+}
+
+.typewriter::-webkit-scrollbar {
+  width: 6px;
+}
+
+.typewriter::-webkit-scrollbar-thumb {
+  background: #ffb3c1;
+  border-radius: 10px;
+}
+
+.typewriter::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.caret {
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  background: #e63946;
+  margin-left: 3px;
+  animation: blink 1s steps(1) infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+.petals span {
+  position: absolute;
+  top: -10%;
+  font-size: 1.6rem;
+  animation: fall linear infinite;
+  opacity: 0.85;
+  pointer-events: none;
+}
+
+@keyframes fall {
+  to { transform: translateY(120vh) rotate(360deg); }
+}
+
+  </style>
+</head>
+<body>
+  <audio id="bgMusic" loop>
+    <source src="aavan-javan.mp3" type="audio/mpeg">
+  </audio>  <div class="petals"></div>  <div class="card">
+    <h1>For Pia</h1>
+    <div class="subtitle">A little Rose Day surprise 🌸</div><div class="photo-frame">
+  <img src="pia.jpg" alt="Pia">
+</div>
+
+<div class="rose">🌹</div>
+
+<button onclick="startSurprise()">Tap for a surprise 💖</button>
+
+<div class="typewriter" id="typeText"></div>
+
+  </div>  <script>
+    const message = `Mrs. Priyanshi Atharva Tripathi I lovee youu veryy muchh 💖💞\n\nI'm very grateful to have you in my life. A girl who loves loves me all through her heart without expecting anything in return.\n\nThis is my first valentine's week💝 and that too with my pasandida aurat❤️.\n\nI'm forever grateful to have you and can't imagine even a single day without talking to youu🥰.\n\nHappy Rose day my foxuu 🌹💞`;
+
+    let index = 0;
+    let started = false;
+
+    function startSurprise() {
+      if (started) return;
+      started = true;
+
+      const music = document.getElementById('bgMusic');
+      music.play().catch(() => {});
+
+      const el = document.getElementById('typeText');
+      el.style.display = 'block';
+      el.innerHTML = '';
+
+      const caret = document.createElement('span');
+      caret.className = 'caret';
+      el.appendChild(caret);
+
+      const interval = setInterval(() => {
+        if (index < message.length) {
+          caret.insertAdjacentText('beforebegin', message.charAt(index));
+          index++;
+        } else {
+          clearInterval(interval);
+          caret.remove();
+
+          const signature = document.createElement('div');
+          signature.style.marginTop = '1rem';
+          signature.style.fontFamily = "'Pacifico', cursive";
+          signature.style.fontSize = '1.2rem';
+          signature.style.color = '#e63946';
+          signature.style.opacity = '0';
+          signature.style.transition = 'opacity 1.5s ease';
+          signature.innerText = '— From Atharva ❤️';
+          el.appendChild(signature);
+
+          setTimeout(() => {
+            signature.style.opacity = '1';
+          }, 300);
+        }
+      }, 35);
+    }
+
+    const petalsContainer = document.querySelector('.petals');
+    const petalEmojis = ['🌸', '🌹', '💮', '💗', '💕'];
+
+    for (let i = 0; i < 22; i++) {
+      const span = document.createElement('span');
+      span.textContent = petalEmojis[Math.floor(Math.random() * petalEmojis.length)];
+      span.style.left = Math.random() * 100 + 'vw';
+      span.style.animationDuration = 6 + Math.random() * 6 + 's';
+      span.style.animationDelay = Math.random() * 5 + 's';
+      petalsContainer.appendChild(span);
+    }
+  </script></body>
+</html>
